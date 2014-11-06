@@ -59,7 +59,7 @@ GEM
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    beefcake (0.3.7)
+    beefcake (1.0.0)
     builder (3.2.2)
     clockwork (1.0.0)
       activesupport
@@ -134,7 +134,7 @@ GEM
     json (1.8.1)
     json_pure (1.8.1)
     loggregator_emitter (3.0.0)
-      beefcake (~> 0.3.7)
+      beefcake (~> 1.0.0)
     machinist (1.0.6)
     membrane (1.1.0)
     method_source (0.8.2)

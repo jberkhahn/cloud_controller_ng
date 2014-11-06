@@ -189,6 +189,27 @@ module VCAP::CloudController
           end
         end
       end
+
+      describe "unicode characters" do
+        let(:update_hash) { {name: "測試"} }
+
+        context "when the update succeeds" do
+          it "records app update with whitelisted attributes" do
+            allow(app_event_repository).to receive(:record_app_update).and_call_original
+
+            expect(app_event_repository).to receive(:record_app_update) do |recorded_app, user, user_name, attributes|
+              expect(recorded_app.guid).to eq(app_obj.guid)
+              expect(recorded_app.name).to eq("測試")
+              expect(user).to eq(admin_user)
+              expect(user_name).to eq(SecurityContext.current_user_email)
+              expect(attributes).to eq({"name" => "測試"})
+            end
+
+            update_app
+            expect(last_response.status).to eq(201)
+          end
+        end
+      end
     end
 
     describe "delete an app" do

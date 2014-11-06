@@ -28,6 +28,7 @@ gem 'talentbox-delayed_job_sequel'
 gem 'thin', '~> 1.6.0'
 gem 'newrelic_rpm'
 gem 'clockwork', require: false
+gem 'beefcake', '>~ 1.0.0'
 
 # We need to use https for git urls as the git protocol is blocked by various
 # firewalls
